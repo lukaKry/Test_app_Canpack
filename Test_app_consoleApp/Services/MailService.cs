@@ -13,7 +13,12 @@ namespace Test_app_consoleApp
         private readonly string from = "testcnpck@gmail.com";
         private readonly string password = "canpack1!";
 
-        public void sendMessage(string to, string subject, string bodyText)
+        private static MailService _instance;
+        private MailService() { }
+        public static MailService Instance => _instance ?? (_instance = new MailService());
+
+
+        public void SendMessage(string to, string subject, string bodyText)
         {
             MimeMessage message = new();
             message.From.Add(new MailboxAddress(from));
@@ -22,15 +27,13 @@ namespace Test_app_consoleApp
 
             message.Body = new TextPart("plain") { Text = bodyText };
 
-            using ( var client = new SmtpClient())
-            {
-                //Demo no validation
-                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-                client.Connect("smtp.gmail.com", 465, true);
-                client.Authenticate("testcnpck", password);
-                client.Send(message);
-                client.Disconnect(true);
-            }
+            using var client = new SmtpClient();
+            //Demo no validation
+            client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+            client.Connect("smtp.gmail.com", 465, true);
+            client.Authenticate("testcnpck", password);
+            client.Send(message);
+            client.Disconnect(true);
 
         }
     }
