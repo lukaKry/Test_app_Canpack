@@ -75,3 +75,4 @@ C:\Users\Łukasz\source\repos\Test_app_solution\Test_app_consoleApp\bin\Debug\ne
 C:\Users\Łukasz\source\repos\Test_app_solution\Test_app_consoleApp\bin\Debug\net5.0\BouncyCastle.Crypto.dll
 C:\Users\Łukasz\source\repos\Test_app_solution\Test_app_consoleApp\bin\Debug\net5.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Łukasz\source\repos\Test_app_solution\Test_app_consoleApp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\Łukasz\source\repos\Test_app_solution\Test_app_consoleApp\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Binder.dll

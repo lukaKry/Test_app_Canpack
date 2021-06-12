@@ -5,13 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Test_app_consoleApp.Services;
 
 namespace Test_app_consoleApp
 {
     public class MailService
     {
-        private readonly string from = "testcnpck@gmail.com";
-        private readonly string password = "canpack1!";
+        private readonly string from = ConfigurationDataService.Instance.Data.mailFromAddress;
+        private readonly string password = ConfigurationDataService.Instance.Data.smtpHostPassword;
 
         private static MailService _instance;
         private MailService() { }
@@ -34,7 +35,6 @@ namespace Test_app_consoleApp
             client.Authenticate("testcnpck", password);
             client.Send(message);
             client.Disconnect(true);
-
         }
     }
 }

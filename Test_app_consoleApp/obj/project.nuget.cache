@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+yATq5yaV7fnNakA8UwkWjP7gQTfYp2GJOpDRUt3mGpzvTrONXI/4vz/sE7lpjqFDp8C25E7D7NAUl2uP7ej4A==",
+  "dgSpecHash": "xUn8ce+sTVcHozodzr7O0SLUVTIGQcMVnIwft087ZBWHzy4QNUIdNb+IsiNeZirlTlJtNh/mr7riEPdc24HybA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Łukasz\\source\\repos\\Test_app_solution\\Test_app_consoleApp\\Test_app_consoleApp.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,7 @@
     "C:\\Users\\Łukasz\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\Łukasz\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",
     "C:\\Users\\Łukasz\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Łukasz\\.nuget\\packages\\microsoft.extensions.configuration.binder\\5.0.0\\microsoft.extensions.configuration.binder.5.0.0.nupkg.sha512",
     "C:\\Users\\Łukasz\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\5.0.0\\microsoft.extensions.configuration.fileextensions.5.0.0.nupkg.sha512",
     "C:\\Users\\Łukasz\\.nuget\\packages\\microsoft.extensions.configuration.json\\5.0.0\\microsoft.extensions.configuration.json.5.0.0.nupkg.sha512",
     "C:\\Users\\Łukasz\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.1\\microsoft.extensions.dependencyinjection.5.0.1.nupkg.sha512",

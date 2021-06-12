@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Test_app_consoleApp.Helpers;
+using Test_app_consoleApp.Services;
 
 namespace Test_app_consoleApp
 {
@@ -11,11 +12,16 @@ namespace Test_app_consoleApp
     {
         public async static Task Main()
         {
+            // dorzucić trycatch na wypadek źle sformatowanego czasu w appsettings.json
 
-            //MyScheduler.IntervalInDays(19, 58, 1, async () =>
-            //{
+            int hour = Convert.ToInt32(ConfigurationDataService.Instance.Data.time.Substring(0,2));
+            int minutes = Convert.ToInt32(ConfigurationDataService.Instance.Data.time.Substring(3, 2));
+
+            MyScheduler.IntervalInDays(hour, minutes, 1, async () =>
+            {
                 string status = "success";
                 int id = -1;
+                string mailTo = ConfigurationDataService.Instance.Data.mailToAddress;
 
                 try
                 {
@@ -72,7 +78,7 @@ namespace Test_app_consoleApp
                         string message = status;
                         if (message == "success") message += $"\nNew record added to database with id: {id}.";
                         // send e-mail 
-                        MailService.Instance.SendMessage("kryszak.lukasz@gmail.com", "test", message);
+                        MailService.Instance.SendMessage(mailTo, "Proccessed efficency raport", message);
 
                         // end
                         Console.WriteLine("Mail sent successfully.");
@@ -87,7 +93,7 @@ namespace Test_app_consoleApp
                         Console.WriteLine($"End of operation with status: {status}");
                     }
                 }
-            //});
+            });
 
 
             Console.ReadLine();
