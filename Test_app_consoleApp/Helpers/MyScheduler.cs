@@ -12,13 +12,16 @@ namespace Test_app_consoleApp
         public static void IntervalInDays(int hour, int min, double interval, Action task)
         {
             interval = interval * 24;
-            SchedulerService.Instance.ScheduleTask(hour, min, interval, task);
-        }
+            try
+            {
+                if (hour > 24 || hour < 0 || min < 0 || min > 59 || interval < 0) throw new FormatException("Incorect date format");
+                SchedulerService.Instance.ScheduleTask(hour, min, interval, task);
+            }
+            catch ( Exception e )
+            {
+                Console.WriteLine(e.Message);
+            }
 
-        public static void IntervalInSeconds(int hour, int sec, double interval, Action task)
-        {
-            interval = interval / 3600;
-            SchedulerService.Instance.ScheduleTask(hour, sec, interval, task);
         }
     }
 }

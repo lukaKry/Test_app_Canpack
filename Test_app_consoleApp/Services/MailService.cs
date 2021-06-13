@@ -12,7 +12,7 @@ namespace Test_app_consoleApp
     public class MailService
     {
         private readonly string from = ConfigurationDataService.Instance.Data.mailFromAddress;
-        private readonly string password = ConfigurationDataService.Instance.Data.smtpHostPassword;
+        private readonly string password = Encoding.Unicode.GetString(Convert.FromBase64String(ConfigurationDataService.Instance.Data.smtpHostPassword));
 
         private static MailService _instance;
         private MailService() { }
@@ -28,13 +28,20 @@ namespace Test_app_consoleApp
 
             message.Body = new TextPart("plain") { Text = bodyText };
 
-            using var client = new SmtpClient();
-            //Demo no validation
-            client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-            client.Connect("smtp.gmail.com", 465, true);
-            client.Authenticate("testcnpck", password);
-            client.Send(message);
-            client.Disconnect(true);
+            try
+            {
+                using var client = new SmtpClient();
+                //Demo no validation
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+                client.Connect("smtp.gmail.com", 465, true);
+                client.Authenticate("testcnpck", password);
+                client.Send(message);
+                client.Disconnect(true);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

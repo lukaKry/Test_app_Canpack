@@ -11,7 +11,6 @@ namespace Test_app_consoleApp.Helpers
 {
     public static class FileReader
     {
-        // private static readonly string filePath = @"C:\Efficiency\eff.xml";
         private static readonly string filePath = ConfigurationDataService.Instance.Data.inputFilePath;
 
         public static RejectDataResponse ReadRawData()
